@@ -91,7 +91,7 @@ class _CreatePostPageWidgetState extends State<CreatePostPageWidget> {
           top: true,
           child: Form(
             key: _model.formKey,
-            autovalidateMode: AutovalidateMode.disabled,
+            autovalidateMode: AutovalidateMode.always,
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -633,6 +633,12 @@ class _CreatePostPageWidgetState extends State<CreatePostPageWidget> {
                                   16.0, 12.0, 16.0, 12.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  if (_model.formKey.currentState == null ||
+                                      !_model.formKey.currentState!
+                                          .validate()) {
+                                    return;
+                                  }
+
                                   await CommunityQuestionRecord.collection
                                       .doc()
                                       .set({
@@ -711,6 +717,12 @@ class _CreatePostPageWidgetState extends State<CreatePostPageWidget> {
                       ],
                     ),
                   ),
+                ),
+                Container(
+                  constraints: BoxConstraints(
+                    maxWidth: 770.0,
+                  ),
+                  decoration: BoxDecoration(),
                 ),
               ],
             ),

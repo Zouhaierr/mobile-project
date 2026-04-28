@@ -25,11 +25,6 @@ class QuizzRecord extends FirestoreRecord {
   String get correctAnswer => _correctAnswer ?? '';
   bool hasCorrectAnswer() => _correctAnswer != null;
 
-  // "Time" field.
-  DateTime? _time;
-  DateTime? get time => _time;
-  bool hasTime() => _time != null;
-
   // "QueestionDif" field.
   int? _queestionDif;
   int get queestionDif => _queestionDif ?? 0;
@@ -38,7 +33,6 @@ class QuizzRecord extends FirestoreRecord {
   void _initializeFields() {
     _question = snapshotData['Question'] as String?;
     _correctAnswer = snapshotData['CorrectAnswer'] as String?;
-    _time = snapshotData['Time'] as DateTime?;
     _queestionDif = castToType<int>(snapshotData['QueestionDif']);
   }
 
@@ -78,14 +72,12 @@ class QuizzRecord extends FirestoreRecord {
 Map<String, dynamic> createQuizzRecordData({
   String? question,
   String? correctAnswer,
-  DateTime? time,
   int? queestionDif,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'Question': question,
       'CorrectAnswer': correctAnswer,
-      'Time': time,
       'QueestionDif': queestionDif,
     }.withoutNulls,
   );
@@ -100,13 +92,12 @@ class QuizzRecordDocumentEquality implements Equality<QuizzRecord> {
   bool equals(QuizzRecord? e1, QuizzRecord? e2) {
     return e1?.question == e2?.question &&
         e1?.correctAnswer == e2?.correctAnswer &&
-        e1?.time == e2?.time &&
         e1?.queestionDif == e2?.queestionDif;
   }
 
   @override
   int hash(QuizzRecord? e) => const ListEquality()
-      .hash([e?.question, e?.correctAnswer, e?.time, e?.queestionDif]);
+      .hash([e?.question, e?.correctAnswer, e?.queestionDif]);
 
   @override
   bool isValidKey(Object? o) => o is QuizzRecord;

@@ -1,7 +1,10 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'settings_tile_model.dart';
 export 'settings_tile_model.dart';
 
@@ -13,14 +16,14 @@ class SettingsTileWidget extends StatefulWidget {
     Color? icon_color,
     String? subtitle,
     String? title,
-  })  : bg_color = bg_color,
-        icon_color = icon_color,
-        subtitle = subtitle ?? 'Name, email, and phone number',
-        title = title ?? 'Personal Information';
+  })  : this.bg_color = bg_color ?? FlutterFlowTheme.of(context).primary10,
+        this.icon_color = icon_color ?? FlutterFlowTheme.of(context).primary,
+        this.subtitle = subtitle ?? 'Name, email, and phone number',
+        this.title = title ?? 'Personal Information';
 
-  final Color? bg_color;
+  final Color bg_color;
   final Widget? icon;
-  final Color? icon_color;
+  final Color icon_color;
   final String subtitle;
   final String title;
 

@@ -160,7 +160,6 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                         fontStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontStyle,
-                                        decoration: TextDecoration.underline,
                                       ),
                                 ),
                               ),
@@ -178,22 +177,29 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.inter(
-                                          fontWeight: FontWeight.bold,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    fontSize: 19.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                    shadows: [
+                                      Shadow(
                                         color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                        fontSize: 19.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
+                                            .secondaryText,
+                                        offset: Offset(1.0, 2.0),
+                                        blurRadius: 1.0,
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                               InkWell(
@@ -210,22 +216,29 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.inter(
-                                          fontWeight: FontWeight.bold,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    fontSize: 19.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                    shadows: [
+                                      Shadow(
                                         color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                        fontSize: 19.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
+                                            .secondaryText,
+                                        offset: Offset(1.0, 2.0),
+                                        blurRadius: 1.0,
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                               InkWell(
@@ -241,22 +254,29 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.inter(
-                                          fontWeight: FontWeight.bold,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    fontSize: 19.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                    shadows: [
+                                      Shadow(
                                         color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                        fontSize: 19.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
+                                            .secondaryText,
+                                        offset: Offset(1.0, 2.0),
+                                        blurRadius: 1.0,
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                               InkWell(
@@ -273,22 +293,29 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.inter(
-                                          fontWeight: FontWeight.bold,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    fontSize: 19.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                    shadows: [
+                                      Shadow(
                                         color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                        fontSize: 19.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
+                                            .secondaryText,
+                                        offset: Offset(1.0, 2.0),
+                                        blurRadius: 1.0,
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                               InkWell(
@@ -305,22 +332,29 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.inter(
-                                          fontWeight: FontWeight.bold,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    fontSize: 19.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                    shadows: [
+                                      Shadow(
                                         color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                        fontSize: 19.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
+                                            .secondaryText,
+                                        offset: Offset(1.0, 2.0),
+                                        blurRadius: 1.0,
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ].divide(SizedBox(height: 15.0)),

@@ -1,13 +1,16 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
 import 'button_model.dart';
 export 'button_model.dart';
 
 class ButtonWidget extends StatefulWidget {
-  ButtonWidget({
+  const ButtonWidget({
     super.key,
     String? content,
     this.icon,
@@ -25,7 +28,7 @@ class ButtonWidget extends StatefulWidget {
         this.icon_present = icon_present ?? false,
         this.icon_end_present = icon_end_present ?? false,
         this.on_tap = on_tap ?? 'navigate:StudentDashboard',
-        this.color = color ?? const Color(0xFF7C3AED),
+        this.color = color ?? FlutterFlowTheme.of(context).primary,
         this.variant = variant ?? 'primary',
         this.size = size ?? 'large',
         this.full_width = full_width ?? true,

@@ -8,10 +8,19 @@ class CreateEditEventPageModel
     extends FlutterFlowModel<CreateEditEventPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final formKey = GlobalKey<FormState>();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
+  String? _textController1Validator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'e.g. Mid-Term Exam Review Session is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for DropDown widget.
   String? dropDownValue1;
   FormFieldController<String>? dropDownValueController1;
@@ -30,7 +39,9 @@ class CreateEditEventPageModel
   DateTime? datePicked6;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    textController1Validator = _textController1Validator;
+  }
 
   @override
   void dispose() {

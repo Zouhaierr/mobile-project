@@ -12,10 +12,41 @@ class CreatePostPageModel extends FlutterFlowModel<CreatePostPageWidget> {
   FocusNode? titleFocusNode;
   TextEditingController? titleTextController;
   String? Function(BuildContext, String?)? titleTextControllerValidator;
+  String? _titleTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Title.. is required';
+    }
+
+    if (val.length < 3) {
+      return 'minimum 3';
+    }
+    if (val.length > 20) {
+      return 'maximum 20';
+    }
+
+    return null;
+  }
+
   // State field(s) for description widget.
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionTextController;
   String? Function(BuildContext, String?)? descriptionTextControllerValidator;
+  String? _descriptionTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Description... is required';
+    }
+
+    if (val.length < 20) {
+      return 'minimum 20';
+    }
+    if (val.length > 100) {
+      return 'maximum 100';
+    }
+
+    return null;
+  }
+
   // State field(s) for ChoiceChips widget.
   FormFieldController<List<String>>? choiceChipsValueController;
   String? get choiceChipsValue =>
@@ -24,7 +55,10 @@ class CreatePostPageModel extends FlutterFlowModel<CreatePostPageWidget> {
       choiceChipsValueController?.value = val != null ? [val] : [];
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    titleTextControllerValidator = _titleTextControllerValidator;
+    descriptionTextControllerValidator = _descriptionTextControllerValidator;
+  }
 
   @override
   void dispose() {
