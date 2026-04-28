@@ -118,11 +118,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CreateaccountWidget(),
         ),
         FFRoute(
-          name: ParticipationWidget.routeName,
-          path: ParticipationWidget.routePath,
-          builder: (context, params) => ParticipationWidget(),
-        ),
-        FFRoute(
           name: CreateLessonWidget.routeName,
           path: CreateLessonWidget.routePath,
           builder: (context, params) => CreateLessonWidget(),

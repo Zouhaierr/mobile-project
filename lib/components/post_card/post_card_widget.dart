@@ -265,8 +265,9 @@ class _PostCardWidgetState extends State<PostCardWidget> {
                                       .secondaryText,
                                   size: 20.0,
                                 ),
-                                onPressed: () {
-                                  print('IconButton pressed ...');
+                                onPressed: () async {
+                                  await columnCommunityQuestionRecord!.reference
+                                      .delete();
                                 },
                               ),
                             ],

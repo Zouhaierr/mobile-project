@@ -5,8 +5,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'taskdetails_model.dart';
-export 'taskdetails_model.dart';
+import 'edittask_model.dart';
+export 'edittask_model.dart';
 
 /// Create a modern, responsive Bottom Sheet component for a Task Details
 /// view.
@@ -17,15 +17,15 @@ export 'taskdetails_model.dart';
 /// description, and a row of icons for 'Assign User' and 'Due Date'. At the
 /// very bottom, place a large, full-width primary button labeled 'Save
 /// Changes'. Use a clean white background with 16px padding everywhere
-class TaskdetailsWidget extends StatefulWidget {
-  const TaskdetailsWidget({super.key});
+class EdittaskWidget extends StatefulWidget {
+  const EdittaskWidget({super.key});
 
   @override
-  State<TaskdetailsWidget> createState() => _TaskdetailsWidgetState();
+  State<EdittaskWidget> createState() => _EdittaskWidgetState();
 }
 
-class _TaskdetailsWidgetState extends State<TaskdetailsWidget> {
-  late TaskdetailsModel _model;
+class _EdittaskWidgetState extends State<EdittaskWidget> {
+  late EdittaskModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -36,7 +36,7 @@ class _TaskdetailsWidgetState extends State<TaskdetailsWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TaskdetailsModel());
+    _model = createModel(context, () => EdittaskModel());
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -48,7 +48,7 @@ class _TaskdetailsWidgetState extends State<TaskdetailsWidget> {
         builder: (context) {
           return Padding(
             padding: MediaQuery.viewInsetsOf(context),
-            child: TaskdetailsWidget(),
+            child: EdittaskWidget(),
           );
         },
       ).then((value) => safeSetState(() {}));

@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/index.dart';
 import 'create_edit_event_page_widget.dart' show CreateEditEventPageWidget;
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,12 @@ class CreateEditEventPageModel
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
+  DateTime? datePicked1;
+  DateTime? datePicked2;
+  DateTime? datePicked3;
+  DateTime? datePicked4;
+  DateTime? datePicked5;
+  DateTime? datePicked6;
 
   @override
   void initState(BuildContext context) {}

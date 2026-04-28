@@ -1,9 +1,9 @@
-import '/components/taskdetails_widget.dart';
+import '/components/edittask_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'taskdetails_widget.dart' show TaskdetailsWidget;
+import 'edittask_widget.dart' show EdittaskWidget;
 import 'package:flutter/material.dart';
 
-class TaskdetailsModel extends FlutterFlowModel<TaskdetailsWidget> {
+class EdittaskModel extends FlutterFlowModel<EdittaskWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for TextField widget.
