@@ -427,6 +427,7 @@ class _CommunityQAFeedWidgetState extends State<CommunityQAFeedWidget> {
                                     children: List.generate(
                                         columnCommunityQuestionRecordList
                                             .length, (columnIndex) {
+                                      // ignore: unused_local_variable
                                       final columnCommunityQuestionRecord =
                                           columnCommunityQuestionRecordList[
                                               columnIndex];

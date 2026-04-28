@@ -706,6 +706,7 @@ class _StudyGroupsDirectoryWidgetState
                                                                   5.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
+                                                          // ignore: unused_local_variable
                                                           var confirmDialogResponse =
                                                               await showDialog<
                                                                       bool>(
