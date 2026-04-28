@@ -712,12 +712,6 @@ class _CreatePostPageWidgetState extends State<CreatePostPageWidget> {
                     ),
                   ),
                 ),
-                Container(
-                  constraints: BoxConstraints(
-                    maxWidth: 770.0,
-                  ),
-                  decoration: BoxDecoration(),
-                ),
               ],
             ),
           ),
