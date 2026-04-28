@@ -1,8 +1,8 @@
-import '/components/event_card/event_card_widget.dart';
 import '/components/filter_chip/filter_chip_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'events_workspace_model.dart';
@@ -47,8 +47,8 @@ class _EventsWorkspaceWidgetState extends State<EventsWorkspaceWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            print('FAB pressed ...');
+          onPressed: () async {
+            context.pushNamed(CreateEditEventPageWidget.routeName);
           },
           backgroundColor: FlutterFlowTheme.of(context).primary,
           icon: Icon(
@@ -112,8 +112,9 @@ class _EventsWorkspaceWidgetState extends State<EventsWorkspaceWidget> {
                                       FlutterFlowTheme.of(context).primaryText,
                                   size: 24.0,
                                 ),
-                                onPressed: () {
-                                  print('IconButton pressed ...');
+                                onPressed: () async {
+                                  context
+                                      .pushNamed(CreateaccountWidget.routeName);
                                 },
                               ),
                               FlutterFlowIconButton(
@@ -303,99 +304,10 @@ class _EventsWorkspaceWidgetState extends State<EventsWorkspaceWidget> {
                                   ),
                                 ),
                               ),
-                              wrapWithModel(
-                                model: _model.eventCardModel1,
-                                updateCallback: () => safeSetState(() {}),
-                                child: EventCardWidget(
-                                  attendees: '12',
-                                  avatars:
-                                      'https://i.pravatar.cc/150?u=1,https://i.pravatar.cc/150?u=2',
-                                  date: 'Oct 24',
-                                  subject: 'Mathematics',
-                                  time: '2:00 PM',
-                                  title:
-                                      'Advanced Calculus: Integration Techniques',
-                                  is_online: true,
-                                ),
-                              ),
-                              wrapWithModel(
-                                model: _model.eventCardModel2,
-                                updateCallback: () => safeSetState(() {}),
-                                child: EventCardWidget(
-                                  attendees: '8',
-                                  avatars:
-                                      'https://i.pravatar.cc/150?u=3,https://i.pravatar.cc/150?u=4',
-                                  date: 'Oct 24',
-                                  subject: 'Design',
-                                  time: '4:30 PM',
-                                  title: 'UI/UX Design Principles Workshop',
-                                  is_online: false,
-                                ),
-                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 24.0, 0.0, 16.0),
-                                child: Container(
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Tomorrow',
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              font: GoogleFonts.interTight(
-                                                fontWeight: FontWeight.bold,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              wrapWithModel(
-                                model: _model.eventCardModel3,
-                                updateCallback: () => safeSetState(() {}),
-                                child: EventCardWidget(
-                                  attendees: '24',
-                                  avatars:
-                                      'https://i.pravatar.cc/150?u=5,https://i.pravatar.cc/150?u=6',
-                                  date: 'Oct 25',
-                                  subject: 'History',
-                                  time: '10:00 AM',
-                                  title: 'Modern European History Review',
-                                  is_online: true,
-                                ),
-                              ),
-                              wrapWithModel(
-                                model: _model.eventCardModel4,
-                                updateCallback: () => safeSetState(() {}),
-                                child: EventCardWidget(
-                                  attendees: '5',
-                                  avatars:
-                                      'https://i.pravatar.cc/150?u=7,https://i.pravatar.cc/150?u=8',
-                                  date: 'Oct 25',
-                                  subject: 'Physics',
-                                  time: '1:00 PM',
-                                  title: 'Physics Lab: Circuit Analysis',
-                                  is_online: false,
-                                ),
+                                child: Container(),
                               ),
                             ].divide(SizedBox(height: 0.0)),
                           ),

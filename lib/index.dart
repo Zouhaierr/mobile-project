@@ -22,8 +22,6 @@ export '/pages/create_edit_event_page/create_edit_event_page_widget.dart'
     show CreateEditEventPageWidget;
 export '/pages/createaccount/createaccount_widget.dart'
     show CreateaccountWidget;
-export '/pages/participation/participation_widget.dart'
-    show ParticipationWidget;
 export '/pages/create_lesson/create_lesson_widget.dart' show CreateLessonWidget;
 export '/session_note/session_note_widget.dart' show SessionNoteWidget;
 export '/pages/classroomsgestion/classroomsgestion_widget.dart'
