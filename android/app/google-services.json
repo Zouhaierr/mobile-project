@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "415434590948",
+    "project_id": "study-companion-ikdf3h",
+    "storage_bucket": "study-companion-ikdf3h.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415434590948:android:c3efdc9c070b95c9df7af1",
+        "android_client_info": {
+          "package_name": "com.mycompany.studycompanion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsSwzkQCQ6UYDYMGB-k-n2ZLDzSdSqfPg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

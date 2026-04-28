@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBwKefGPycz-5iGFl9BXxxEPYXBgwID7QY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>415434590948</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mycompany.studycompanion</string>
+	<key>PROJECT_ID</key>
+	<string>study-companion-ikdf3h</string>
+	<key>STORAGE_BUCKET</key>
+	<string>study-companion-ikdf3h.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:415434590948:ios:95d79654c571eba2df7af1</string>
+</dict>
+</plist>
