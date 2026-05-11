@@ -9,15 +9,24 @@ class CreateEditEventPageModel
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  String? _textController1Validator(BuildContext context, String? val) {
+  // State field(s) for titre widget.
+  FocusNode? titreFocusNode;
+  TextEditingController? titreTextController;
+  String? Function(BuildContext, String?)? titreTextControllerValidator;
+  String? _titreTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'e.g. Mid-Term Exam Review Session is required';
+      return 'titrre obligqtoire';
     }
 
+    if (val.length < 4) {
+      return 'minimum 3 ';
+    }
+    if (val.length > 30) {
+      return 'maximum 30 ';
+    }
+    if (!RegExp('^(?!\\s*\$).+').hasMatch(val)) {
+      return 'The input must contain at least one real (non-space) character.';
+    }
     return null;
   }
 
@@ -27,28 +36,43 @@ class CreateEditEventPageModel
   // State field(s) for DropDown widget.
   String? dropDownValue2;
   FormFieldController<String>? dropDownValueController2;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
+  // State field(s) for desc widget.
+  FocusNode? descFocusNode;
+  TextEditingController? descTextController;
+  String? Function(BuildContext, String?)? descTextControllerValidator;
+  String? _descTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Describe  s required';
+    }
+
+    if (val.length < 0) {
+      return 'Requires at least 0 characters.';
+    }
+    if (val.length > 500) {
+      return 'Maximum 500 characters allowed, currently ${val.length}.';
+    }
+    if (!RegExp('^(?!\\s*\$).+').hasMatch(val)) {
+      return 'The input must contain at least one real (non-space) character.';
+    }
+    return null;
+  }
+
   DateTime? datePicked1;
   DateTime? datePicked2;
   DateTime? datePicked3;
-  DateTime? datePicked4;
-  DateTime? datePicked5;
-  DateTime? datePicked6;
 
   @override
   void initState(BuildContext context) {
-    textController1Validator = _textController1Validator;
+    titreTextControllerValidator = _titreTextControllerValidator;
+    descTextControllerValidator = _descTextControllerValidator;
   }
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    titreFocusNode?.dispose();
+    titreTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    descFocusNode?.dispose();
+    descTextController?.dispose();
   }
 }

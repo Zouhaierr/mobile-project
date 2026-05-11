@@ -1,4 +1,3 @@
-import '/components/button/button_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -207,22 +206,6 @@ class _EventListItemWidgetState extends State<EventListItemWidget> {
                           ].divide(SizedBox(width: 4.0)),
                         ),
                       ].divide(SizedBox(height: 4.0)),
-                    ),
-                  ),
-                  wrapWithModel(
-                    model: _model.buttonModel,
-                    updateCallback: () => safeSetState(() {}),
-                    child: ButtonWidget(
-                      content: 'Join',
-                      icon_present: false,
-                      icon_end_present: false,
-                      on_tap: 'navigate:EventsWorkspace',
-                      color: FlutterFlowTheme.of(context).primary,
-                      variant: 'outline',
-                      size: 'small',
-                      full_width: false,
-                      loading: false,
-                      disabled: false,
                     ),
                   ),
                 ].divide(SizedBox(width: 16.0)),

@@ -1,4 +1,3 @@
-import '/components/button/button_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -209,22 +208,6 @@ class _GroupCardWidgetState extends State<GroupCardWidget> {
                         ),
                   ),
                 ],
-              ),
-              wrapWithModel(
-                model: _model.buttonModel,
-                updateCallback: () => safeSetState(() {}),
-                child: ButtonWidget(
-                  content: 'Join Group',
-                  icon_present: false,
-                  icon_end_present: false,
-                  on_tap: 'navigate:StudyGroupsDirectory',
-                  color: FlutterFlowTheme.of(context).primary,
-                  variant: 'outline',
-                  size: 'small',
-                  full_width: true,
-                  loading: false,
-                  disabled: false,
-                ),
               ),
             ].divide(SizedBox(height: 16.0)),
           ),

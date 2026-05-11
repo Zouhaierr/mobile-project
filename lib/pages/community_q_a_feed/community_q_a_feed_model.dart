@@ -5,6 +5,10 @@ import 'community_q_a_feed_widget.dart' show CommunityQAFeedWidget;
 import 'package:flutter/material.dart';
 
 class CommunityQAFeedModel extends FlutterFlowModel<CommunityQAFeedWidget> {
+  ///  Local state fields for this page.
+
+  bool isExpanded = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for FilterChip2.

@@ -289,10 +289,7 @@ class _AnswerSectionWidgetState extends State<AnswerSectionWidget> {
                           ].divide(SizedBox(width: 12.0)),
                         ),
                         Text(
-                          valueOrDefault<String>(
-                            columnCommunityQuestionAnswerRecord?.body,
-                            'Hey Adam, I was wondering if this could be accomplished? We will need to update the comment for design.',
-                          ),
+                          'Hey Adam, I was wondering if this could be accomplished? We will need to update the comment for design.',
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     font: GoogleFonts.plusJakartaSans(
@@ -609,7 +606,7 @@ class _AnswerSectionWidgetState extends State<AnswerSectionWidget> {
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                              maxLines: 8,
+                              maxLines: 5,
                               minLines: 4,
                               cursorColor: FlutterFlowTheme.of(context).primary,
                               validator: _model.textControllerValidator

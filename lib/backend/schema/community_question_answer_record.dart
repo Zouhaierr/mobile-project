@@ -20,11 +20,6 @@ class CommunityQuestionAnswerRecord extends FirestoreRecord {
   String get author => _author ?? '';
   bool hasAuthor() => _author != null;
 
-  // "body" field.
-  String? _body;
-  String get body => _body ?? '';
-  bool hasBody() => _body != null;
-
   // "createdAt" field.
   DateTime? _createdAt;
   DateTime? get createdAt => _createdAt;
@@ -45,13 +40,18 @@ class CommunityQuestionAnswerRecord extends FirestoreRecord {
   bool get isAccepted => _isAccepted ?? false;
   bool hasIsAccepted() => _isAccepted != null;
 
+  // "comment" field.
+  String? _comment;
+  String get comment => _comment ?? '';
+  bool hasComment() => _comment != null;
+
   void _initializeFields() {
     _author = snapshotData['author'] as String?;
-    _body = snapshotData['body'] as String?;
     _createdAt = snapshotData['createdAt'] as DateTime?;
     _isDeleted = snapshotData['isDeleted'] as bool?;
     _questionRef = snapshotData['questionRef'] as DocumentReference?;
     _isAccepted = snapshotData['isAccepted'] as bool?;
+    _comment = snapshotData['comment'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -93,20 +93,20 @@ class CommunityQuestionAnswerRecord extends FirestoreRecord {
 
 Map<String, dynamic> createCommunityQuestionAnswerRecordData({
   String? author,
-  String? body,
   DateTime? createdAt,
   bool? isDeleted,
   DocumentReference? questionRef,
   bool? isAccepted,
+  String? comment,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'author': author,
-      'body': body,
       'createdAt': createdAt,
       'isDeleted': isDeleted,
       'questionRef': questionRef,
       'isAccepted': isAccepted,
+      'comment': comment,
     }.withoutNulls,
   );
 
@@ -121,21 +121,21 @@ class CommunityQuestionAnswerRecordDocumentEquality
   bool equals(
       CommunityQuestionAnswerRecord? e1, CommunityQuestionAnswerRecord? e2) {
     return e1?.author == e2?.author &&
-        e1?.body == e2?.body &&
         e1?.createdAt == e2?.createdAt &&
         e1?.isDeleted == e2?.isDeleted &&
         e1?.questionRef == e2?.questionRef &&
-        e1?.isAccepted == e2?.isAccepted;
+        e1?.isAccepted == e2?.isAccepted &&
+        e1?.comment == e2?.comment;
   }
 
   @override
   int hash(CommunityQuestionAnswerRecord? e) => const ListEquality().hash([
         e?.author,
-        e?.body,
         e?.createdAt,
         e?.isDeleted,
         e?.questionRef,
-        e?.isAccepted
+        e?.isAccepted,
+        e?.comment
       ]);
 
   @override

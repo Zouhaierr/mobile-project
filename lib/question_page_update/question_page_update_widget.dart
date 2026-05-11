@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -36,10 +37,8 @@ class _QuestionPageUpdateWidgetState extends State<QuestionPageUpdateWidget> {
     super.initState();
     _model = createModel(context, () => QuestionPageUpdateModel());
 
-    _model.titleTextController ??= TextEditingController();
     _model.titleFocusNode ??= FocusNode();
 
-    _model.descriptionTextController ??= TextEditingController();
     _model.descriptionFocusNode ??= FocusNode();
   }
 
@@ -145,16 +144,19 @@ class _QuestionPageUpdateWidgetState extends State<QuestionPageUpdateWidget> {
                                           snapshot.data!;
 
                                       return TextFormField(
-                                        controller: _model.titleTextController,
+                                        controller:
+                                            _model.titleTextController ??=
+                                                TextEditingController(
+                                          text: titleCommunityQuestionRecord
+                                              .title,
+                                        ),
                                         focusNode: _model.titleFocusNode,
                                         autofocus: true,
                                         textCapitalization:
                                             TextCapitalization.words,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText:
-                                              titleCommunityQuestionRecord
-                                                  .title,
+                                          labelText: 'Title..',
                                           labelStyle: FlutterFlowTheme.of(
                                                   context)
                                               .headlineMedium
@@ -357,16 +359,19 @@ class _QuestionPageUpdateWidgetState extends State<QuestionPageUpdateWidget> {
 
                                       return TextFormField(
                                         controller:
-                                            _model.descriptionTextController,
+                                            _model.descriptionTextController ??=
+                                                TextEditingController(
+                                          text:
+                                              descriptionCommunityQuestionRecord
+                                                  .body,
+                                        ),
                                         focusNode: _model.descriptionFocusNode,
                                         autofocus: true,
                                         textCapitalization:
                                             TextCapitalization.words,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText:
-                                              descriptionCommunityQuestionRecord
-                                                  .body,
+                                          labelText: 'Description...',
                                           labelStyle: FlutterFlowTheme.of(
                                                   context)
                                               .labelLarge
@@ -726,7 +731,8 @@ class _QuestionPageUpdateWidgetState extends State<QuestionPageUpdateWidget> {
                                   16.0, 12.0, 16.0, 12.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  context.safePop();
+                                  context.pushNamed(
+                                      CommunityQAFeedWidget.routeName);
                                 },
                                 text: 'Cancel',
                                 options: FFButtonOptions(
@@ -773,8 +779,12 @@ class _QuestionPageUpdateWidgetState extends State<QuestionPageUpdateWidget> {
                                   16.0, 12.0, 16.0, 12.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  await widget.questionRef!.update(
-                                      createCommunityQuestionRecordData());
+                                  await widget.questionRef!
+                                      .update(createCommunityQuestionRecordData(
+                                    title: _model.titleTextController.text,
+                                    body: _model.descriptionTextController.text,
+                                  ));
+                                  context.safePop();
                                 },
                                 text: 'Edit Question',
                                 options: FFButtonOptions(

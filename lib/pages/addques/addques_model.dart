@@ -4,6 +4,16 @@ import 'addques_widget.dart' show AddquesWidget;
 import 'package:flutter/material.dart';
 
 class AddquesModel extends FlutterFlowModel<AddquesWidget> {
+  ///  Local state fields for this page.
+
+  String? questionValidationError = '';
+
+  String? answerValidationError = '';
+
+  String? difficultyValidationError = '';
+
+  int? questionLetterCount = 0;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -16,6 +26,15 @@ class AddquesModel extends FlutterFlowModel<AddquesWidget> {
       return 'Provide a detailed description or context for the question... is required';
     }
 
+    if (val.length < 10) {
+      return 'Requires at least 10 characters.';
+    }
+    if (val.length > 50) {
+      return 'Maximum 50 characters allowed, currently ${val.length}.';
+    }
+    if (!RegExp('^(?! )[a-zA-Z0-9_ ]{10,}\$').hasMatch(val)) {
+      return 'Invalid text';
+    }
     return null;
   }
 
@@ -23,10 +42,30 @@ class AddquesModel extends FlutterFlowModel<AddquesWidget> {
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
+  String? _textController2Validator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Enter the correct answer... is required';
+    }
+
+    if (val.length < 5) {
+      return 'Requires at least 5 characters.';
+    }
+    if (val.length > 50) {
+      return 'Maximum 50 characters allowed, currently ${val.length}.';
+    }
+    if (!RegExp('^(?! )[a-zA-Z0-9_ ]{5,}\$').hasMatch(val)) {
+      return 'Invalid text';
+    }
+    return null;
+  }
+
+  // State field(s) for CountController widget.
+  int? countControllerValue;
 
   @override
   void initState(BuildContext context) {
     textController1Validator = _textController1Validator;
+    textController2Validator = _textController2Validator;
   }
 
   @override

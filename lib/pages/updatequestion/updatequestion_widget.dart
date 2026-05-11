@@ -1,8 +1,10 @@
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -91,25 +93,21 @@ class _UpdatequestionWidgetState extends State<UpdatequestionWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: Color(0xFF7B2FBE),
           automaticallyImplyLeading: false,
-          leading: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-            child: FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 12.0,
-              borderWidth: 0.0,
-              buttonSize: 44.0,
-              fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-              icon: Icon(
-                Icons.arrow_back_ios_rounded,
-                color: FlutterFlowTheme.of(context).primaryText,
-                size: 22.0,
-              ),
-              onPressed: () async {
-                context.pushNamed(ManzgequestWidget.routeName);
-              },
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: Icon(
+              Icons.line_weight,
+              color: Colors.white,
+              size: 30.0,
             ),
+            onPressed: () async {
+              context.pop();
+            },
           ),
           title: Text(
             'update  Question',
@@ -119,6 +117,7 @@ class _UpdatequestionWidgetState extends State<UpdatequestionWidget> {
                     fontStyle:
                         FlutterFlowTheme.of(context).titleMedium.fontStyle,
                   ),
+                  color: Colors.white,
                   fontSize: 18.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
@@ -126,8 +125,8 @@ class _UpdatequestionWidgetState extends State<UpdatequestionWidget> {
                 ),
           ),
           actions: [],
-          centerTitle: true,
-          elevation: 0.0,
+          centerTitle: false,
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
@@ -212,7 +211,12 @@ class _UpdatequestionWidgetState extends State<UpdatequestionWidget> {
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.textController1',
                               Duration(milliseconds: 2000),
-                              () => safeSetState(() {}),
+                              () async {
+                                await actions.updateValidation(
+                                  _model.textController1.text,
+                                  _model.textController2.text,
+                                );
+                              },
                             ),
                             autofocus: false,
                             textCapitalization: TextCapitalization.sentences,
@@ -368,7 +372,12 @@ class _UpdatequestionWidgetState extends State<UpdatequestionWidget> {
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textController2',
                             Duration(milliseconds: 2000),
-                            () => safeSetState(() {}),
+                            () async {
+                              await actions.updateValidation(
+                                _model.textController1.text,
+                                _model.textController2.text,
+                              );
+                            },
                           ),
                           autofocus: false,
                           textCapitalization: TextCapitalization.sentences,
@@ -475,33 +484,114 @@ class _UpdatequestionWidgetState extends State<UpdatequestionWidget> {
                         ),
                       ].divide(SizedBox(height: 8.0)),
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          child: Container(
-                            width: double.infinity,
+                    Align(
+                      alignment: AlignmentDirectional(0.0, -1.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 8.0,
+                                    color: Color(0x0A000000),
+                                    offset: Offset(
+                                      0.0,
+                                      2.0,
+                                    ),
+                                  )
+                                ],
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Difficulty',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: GoogleFonts.inter(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                          ),
+                          Container(
+                            width: 120.0,
+                            height: 40.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 8.0,
-                                  color: Color(0x0A000000),
-                                  offset: Offset(
-                                    0.0,
-                                    2.0,
-                                  ),
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(16.0),
+                              borderRadius: BorderRadius.circular(8.0),
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: FlutterFlowCountController(
+                              decrementIconBuilder: (enabled) => Icon(
+                                Icons.remove_rounded,
+                                color: enabled
+                                    ? FlutterFlowTheme.of(context).secondaryText
+                                    : FlutterFlowTheme.of(context).alternate,
+                                size: 24.0,
+                              ),
+                              incrementIconBuilder: (enabled) => Icon(
+                                Icons.add_rounded,
+                                color: enabled
+                                    ? FlutterFlowTheme.of(context).primary
+                                    : FlutterFlowTheme.of(context).alternate,
+                                size: 24.0,
+                              ),
+                              countBuilder: (count) => Text(
+                                count.toString(),
+                                style: FlutterFlowTheme.of(context)
+                                    .titleLarge
+                                    .override(
+                                      font: GoogleFonts.plusJakartaSans(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleLarge
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleLarge
+                                          .fontStyle,
+                                    ),
+                              ),
+                              count: _model.countControllerValue ??= 1,
+                              updateCount: (count) => safeSetState(
+                                  () => _model.countControllerValue = count),
+                              stepSize: 1,
+                              minimum: 1,
+                              maximum: 5,
+                              contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 0.0, 12.0, 0.0),
                             ),
                           ),
-                        ),
-                      ].divide(SizedBox(height: 12.0)),
+                        ].divide(SizedBox(height: 12.0)),
+                      ),
                     ),
                     Padding(
                       padding:
@@ -526,12 +616,16 @@ class _UpdatequestionWidgetState extends State<UpdatequestionWidget> {
                       ),
                     ),
                     FFButtonWidget(
-                      onPressed: ((_model.textController1.text != '') &&
-                              (_model.textController2.text != ''))
+                      onPressed: ((_model.textController1.text == '') ||
+                              (_model.textController2.text == ''))
                           ? null
                           : () async {
                               await widget.userRef!
-                                  .update(createQuizzRecordData());
+                                  .update(createQuizzRecordData(
+                                question: _model.textController1.text,
+                                correctAnswer: _model.textController2.text,
+                                queestionDif: _model.countControllerValue,
+                              ));
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
@@ -546,8 +640,12 @@ class _UpdatequestionWidgetState extends State<UpdatequestionWidget> {
                                       FlutterFlowTheme.of(context).secondary,
                                 ),
                               );
+                              if (_model.formKey.currentState == null ||
+                                  !_model.formKey.currentState!.validate()) {
+                                return;
+                              }
 
-                              context.pushNamed(ManzgequestWidget.routeName);
+                              context.pushNamed(ViewQuestionWidget.routeName);
                             },
                       text: 'Save Question',
                       options: FFButtonOptions(

@@ -46,11 +46,6 @@ class CommunityArticleRecord extends FirestoreRecord {
   DateTime? get updatedAt => _updatedAt;
   bool hasUpdatedAt() => _updatedAt != null;
 
-  // "isDeleted" field.
-  bool? _isDeleted;
-  bool get isDeleted => _isDeleted ?? false;
-  bool hasIsDeleted() => _isDeleted != null;
-
   // "viewCount" field.
   int? _viewCount;
   int get viewCount => _viewCount ?? 0;
@@ -61,6 +56,11 @@ class CommunityArticleRecord extends FirestoreRecord {
   List<DocumentReference> get comments => _comments ?? const [];
   bool hasComments() => _comments != null;
 
+  // "summarize" field.
+  String? _summarize;
+  String get summarize => _summarize ?? '';
+  bool hasSummarize() => _summarize != null;
+
   void _initializeFields() {
     _title = snapshotData['title'] as String?;
     _body = snapshotData['body'] as String?;
@@ -68,9 +68,9 @@ class CommunityArticleRecord extends FirestoreRecord {
     _tags = getDataList(snapshotData['tags']);
     _createdAt = snapshotData['createdAt'] as DateTime?;
     _updatedAt = snapshotData['updatedAt'] as DateTime?;
-    _isDeleted = snapshotData['isDeleted'] as bool?;
     _viewCount = castToType<int>(snapshotData['viewCount']);
     _comments = getDataList(snapshotData['comments']);
+    _summarize = snapshotData['summarize'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -114,8 +114,8 @@ Map<String, dynamic> createCommunityArticleRecordData({
   String? author,
   DateTime? createdAt,
   DateTime? updatedAt,
-  bool? isDeleted,
   int? viewCount,
+  String? summarize,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -124,8 +124,8 @@ Map<String, dynamic> createCommunityArticleRecordData({
       'author': author,
       'createdAt': createdAt,
       'updatedAt': updatedAt,
-      'isDeleted': isDeleted,
       'viewCount': viewCount,
+      'summarize': summarize,
     }.withoutNulls,
   );
 
@@ -145,9 +145,9 @@ class CommunityArticleRecordDocumentEquality
         listEquality.equals(e1?.tags, e2?.tags) &&
         e1?.createdAt == e2?.createdAt &&
         e1?.updatedAt == e2?.updatedAt &&
-        e1?.isDeleted == e2?.isDeleted &&
         e1?.viewCount == e2?.viewCount &&
-        listEquality.equals(e1?.comments, e2?.comments);
+        listEquality.equals(e1?.comments, e2?.comments) &&
+        e1?.summarize == e2?.summarize;
   }
 
   @override
@@ -158,9 +158,9 @@ class CommunityArticleRecordDocumentEquality
         e?.tags,
         e?.createdAt,
         e?.updatedAt,
-        e?.isDeleted,
         e?.viewCount,
-        e?.comments
+        e?.comments,
+        e?.summarize
       ]);
 
   @override

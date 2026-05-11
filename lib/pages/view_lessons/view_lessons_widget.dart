@@ -350,8 +350,7 @@ class _ViewLessonsWidgetState extends State<ViewLessonsWidget> {
                                       },
                                       child: Icon(
                                         Icons.edit,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                        color: Color(0xFFF75558),
                                         size: 24.0,
                                       ),
                                     ),
@@ -367,8 +366,7 @@ class _ViewLessonsWidgetState extends State<ViewLessonsWidget> {
                                     },
                                     child: Icon(
                                       Icons.delete,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
+                                      color: Color(0xFFE11000),
                                       size: 24.0,
                                     ),
                                   ),

@@ -51,11 +51,6 @@ class CommunityQuestionRecord extends FirestoreRecord {
   bool get isDeleted => _isDeleted ?? false;
   bool hasIsDeleted() => _isDeleted != null;
 
-  // "answers" field.
-  List<DocumentReference>? _answers;
-  List<DocumentReference> get answers => _answers ?? const [];
-  bool hasAnswers() => _answers != null;
-
   // "isAccepted" field.
   bool? _isAccepted;
   bool get isAccepted => _isAccepted ?? false;
@@ -69,7 +64,6 @@ class CommunityQuestionRecord extends FirestoreRecord {
     _createdAt = snapshotData['createdAt'] as DateTime?;
     _updatedAt = snapshotData['updatedAt'] as DateTime?;
     _isDeleted = snapshotData['isDeleted'] as bool?;
-    _answers = getDataList(snapshotData['answers']);
     _isAccepted = snapshotData['isAccepted'] as bool?;
   }
 
@@ -146,7 +140,6 @@ class CommunityQuestionRecordDocumentEquality
         e1?.createdAt == e2?.createdAt &&
         e1?.updatedAt == e2?.updatedAt &&
         e1?.isDeleted == e2?.isDeleted &&
-        listEquality.equals(e1?.answers, e2?.answers) &&
         e1?.isAccepted == e2?.isAccepted;
   }
 
@@ -159,7 +152,6 @@ class CommunityQuestionRecordDocumentEquality
         e?.createdAt,
         e?.updatedAt,
         e?.isDeleted,
-        e?.answers,
         e?.isAccepted
       ]);
 

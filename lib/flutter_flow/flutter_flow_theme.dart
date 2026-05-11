@@ -3,33 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:shared_preferences/shared_preferences.dart';
-
-const kThemeModeKey = '__theme_mode__';
-
-SharedPreferences? _prefs;
-
 abstract class FlutterFlowTheme {
-  static Future initialize() async =>
-      _prefs = await SharedPreferences.getInstance();
-
-  static ThemeMode get themeMode {
-    final darkMode = _prefs?.getBool(kThemeModeKey);
-    return darkMode == null
-        ? ThemeMode.system
-        : darkMode
-            ? ThemeMode.dark
-            : ThemeMode.light;
-  }
-
-  static void saveThemeMode(ThemeMode mode) => mode == ThemeMode.system
-      ? _prefs?.remove(kThemeModeKey)
-      : _prefs?.setBool(kThemeModeKey, mode == ThemeMode.dark);
-
   static FlutterFlowTheme of(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? DarkModeTheme()
-        : LightModeTheme();
+    return LightModeTheme();
   }
 
   @Deprecated('Use primary instead')
@@ -364,49 +340,6 @@ class ThemeTypography extends Typography {
         fontSize: 12.0,
         height: 1.4,
       );
-}
-
-class DarkModeTheme extends FlutterFlowTheme {
-  @Deprecated('Use primary instead')
-  Color get primaryColor => primary;
-  @Deprecated('Use secondary instead')
-  Color get secondaryColor => secondary;
-  @Deprecated('Use tertiary instead')
-  Color get tertiaryColor => tertiary;
-
-  late Color primary = const Color(0xFF8B5CF6);
-  late Color secondary = const Color(0xFFC084FC);
-  late Color tertiary = const Color(0xFFFB7185);
-  late Color alternate = const Color(0xFF334155);
-  late Color primaryText = const Color(0xFFF8FAFC);
-  late Color secondaryText = const Color(0xFF94A3B8);
-  late Color primaryBackground = const Color(0xFF0F172A);
-  late Color secondaryBackground = const Color(0xFF1E293B);
-  late Color accent1 = const Color(0x4C4B39EF);
-  late Color accent2 = const Color(0x4D39D2C0);
-  late Color accent3 = const Color(0xFF64748B);
-  late Color accent4 = const Color(0xB2262D34);
-  late Color success = const Color(0xFF34D399);
-  late Color warning = const Color(0xFFF9CF58);
-  late Color error = const Color(0xFFF87171);
-  late Color info = const Color(0xFFFFFFFF);
-
-  late Color onPrimary = const Color(0xFFFFFFFF);
-  late Color onSecondary = const Color(0xFFFFFFFF);
-  late Color onSurface = const Color(0xFFF1F5F9);
-  late Color onError = const Color(0xFFFFFFFF);
-  late Color transparent = const Color(0x00000000);
-  late Color primary10 = const Color(0x1A8B5CF6);
-  late Color background20 = const Color(0x330F172A);
-  late Color accent10 = const Color(0x1AFB7185);
-  late Color success10 = const Color(0x1A34D399);
-  late Color primary5 = const Color(0x0D8B5CF6);
-  late Color primary20 = const Color(0x338B5CF6);
-  late Color onSurface80 = const Color(0xCCF1F5F9);
-  late Color onSurface90 = const Color(0xE6F1F5F9);
-  late Color onPrimary20 = const Color(0x33FFFFFF);
-  late Color success15 = const Color(0x2634D399);
-  late Color secondary10 = const Color(0x1AC084FC);
 }
 
 class FFDesignTokens {

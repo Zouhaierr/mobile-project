@@ -1,4 +1,3 @@
-import '/components/button/button_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -313,22 +312,6 @@ class _EventCardWidgetState extends State<EventCardWidget> {
                                 ),
                           ),
                         ],
-                      ),
-                      wrapWithModel(
-                        model: _model.buttonModel,
-                        updateCallback: () => safeSetState(() {}),
-                        child: ButtonWidget(
-                          content: 'Join Session',
-                          icon_present: false,
-                          icon_end_present: false,
-                          on_tap: 'navigate:EventsWorkspace',
-                          color: FlutterFlowTheme.of(context).primary,
-                          variant: 'primary',
-                          size: 'small',
-                          full_width: false,
-                          loading: false,
-                          disabled: false,
-                        ),
                       ),
                     ],
                   ),

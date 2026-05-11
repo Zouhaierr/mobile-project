@@ -1,3 +1,15 @@
 {
-  "indexes": []
+  "indexes": [],
+  "fieldOverrides": [
+    {
+      "collectionGroup": "comments",
+      "fieldPath": "task_ref",
+      "indexes": [
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION_GROUP"
+        }
+      ]
+    }
+  ]
 }

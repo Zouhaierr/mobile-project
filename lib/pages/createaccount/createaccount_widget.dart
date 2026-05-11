@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
@@ -137,8 +138,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed(
-                                      ClassroomsgestionWidget.routeName);
+                                  context.pushNamed(ClassroommWidget.routeName);
                                 },
                                 child: Text(
                                   'Talel',
@@ -247,7 +247,15 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed(ActivityWidget.routeName);
+                                  context.pushNamed(
+                                    TaskpageWidget.routeName,
+                                    queryParameters: {
+                                      'userRef': serializeParam(
+                                        currentUserReference,
+                                        ParamType.DocumentReference,
+                                      ),
+                                    }.withoutNulls,
+                                  );
                                 },
                                 child: Text(
                                   'bilel',
@@ -286,7 +294,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context
-                                      .pushNamed(ManzgequestWidget.routeName);
+                                      .pushNamed(ViewQuestionWidget.routeName);
                                 },
                                 child: Text(
                                   'ala',

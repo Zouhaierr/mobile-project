@@ -15,37 +15,69 @@ class ActivityRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "id" field.
-  String? _id;
-  String get id => _id ?? '';
-  bool hasId() => _id != null;
-
   // "title" field.
   String? _title;
+
+  /// Task name
   String get title => _title ?? '';
   bool hasTitle() => _title != null;
 
   // "description" field.
   String? _description;
+
+  /// Task details
   String get description => _description ?? '';
   bool hasDescription() => _description != null;
 
   // "status" field.
   String? _status;
+
+  /// Backlog / To Do / In Progress / Done
   String get status => _status ?? '';
   bool hasStatus() => _status != null;
 
-  // "periority" field.
-  String? _periority;
-  String get periority => _periority ?? '';
-  bool hasPeriority() => _periority != null;
+  // "due_date" field.
+  DateTime? _dueDate;
+
+  /// Task deadline
+  DateTime? get dueDate => _dueDate;
+  bool hasDueDate() => _dueDate != null;
+
+  // "proof_of_work_url" field.
+  String? _proofOfWorkUrl;
+
+  /// Link to uploaded file
+  String get proofOfWorkUrl => _proofOfWorkUrl ?? '';
+  bool hasProofOfWorkUrl() => _proofOfWorkUrl != null;
+
+  // "created_at" field.
+  DateTime? _createdAt;
+
+  /// Auto timestamp
+  DateTime? get createdAt => _createdAt;
+  bool hasCreatedAt() => _createdAt != null;
+
+  // "user_ref" field.
+  DocumentReference? _userRef;
+  DocumentReference? get userRef => _userRef;
+  bool hasUserRef() => _userRef != null;
+
+  // "priority" field.
+  String? _priority;
+
+  /// Low / Medium / High
+  String get priority => _priority ?? '';
+  bool hasPriority() => _priority != null;
 
   void _initializeFields() {
-    _id = snapshotData['id'] as String?;
     _title = snapshotData['title'] as String?;
     _description = snapshotData['description'] as String?;
     _status = snapshotData['status'] as String?;
-    _periority = snapshotData['periority'] as String?;
+    _dueDate = snapshotData['due_date'] as DateTime?;
+    _proofOfWorkUrl = snapshotData['proof_of_work_url'] as String?;
+    _createdAt = snapshotData['created_at'] as DateTime?;
+    _userRef = snapshotData['user_ref'] as DocumentReference?;
+    _priority = snapshotData['priority'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -83,19 +115,25 @@ class ActivityRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createActivityRecordData({
-  String? id,
   String? title,
   String? description,
   String? status,
-  String? periority,
+  DateTime? dueDate,
+  String? proofOfWorkUrl,
+  DateTime? createdAt,
+  DocumentReference? userRef,
+  String? priority,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'id': id,
       'title': title,
       'description': description,
       'status': status,
-      'periority': periority,
+      'due_date': dueDate,
+      'proof_of_work_url': proofOfWorkUrl,
+      'created_at': createdAt,
+      'user_ref': userRef,
+      'priority': priority,
     }.withoutNulls,
   );
 
@@ -107,16 +145,27 @@ class ActivityRecordDocumentEquality implements Equality<ActivityRecord> {
 
   @override
   bool equals(ActivityRecord? e1, ActivityRecord? e2) {
-    return e1?.id == e2?.id &&
-        e1?.title == e2?.title &&
+    return e1?.title == e2?.title &&
         e1?.description == e2?.description &&
         e1?.status == e2?.status &&
-        e1?.periority == e2?.periority;
+        e1?.dueDate == e2?.dueDate &&
+        e1?.proofOfWorkUrl == e2?.proofOfWorkUrl &&
+        e1?.createdAt == e2?.createdAt &&
+        e1?.userRef == e2?.userRef &&
+        e1?.priority == e2?.priority;
   }
 
   @override
-  int hash(ActivityRecord? e) => const ListEquality()
-      .hash([e?.id, e?.title, e?.description, e?.status, e?.periority]);
+  int hash(ActivityRecord? e) => const ListEquality().hash([
+        e?.title,
+        e?.description,
+        e?.status,
+        e?.dueDate,
+        e?.proofOfWorkUrl,
+        e?.createdAt,
+        e?.userRef,
+        e?.priority
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is ActivityRecord;

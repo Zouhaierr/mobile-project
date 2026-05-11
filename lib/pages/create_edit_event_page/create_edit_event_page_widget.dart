@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -45,11 +46,11 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
     super.initState();
     _model = createModel(context, () => CreateEditEventPageModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.titreTextController ??= TextEditingController();
+    _model.titreFocusNode ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
+    _model.descTextController ??= TextEditingController();
+    _model.descFocusNode ??= FocusNode();
   }
 
   @override
@@ -120,7 +121,7 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
           children: [
             Form(
               key: _model.formKey,
-              autovalidateMode: AutovalidateMode.disabled,
+              autovalidateMode: AutovalidateMode.always,
               child: Align(
                 alignment: AlignmentDirectional(0.0, 0.0),
                 child: SingleChildScrollView(
@@ -250,11 +251,11 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
                                   ),
                                 ),
                                 TextFormField(
-                                  controller: _model.textController1,
-                                  focusNode: _model.textFieldFocusNode1,
+                                  controller: _model.titreTextController,
+                                  focusNode: _model.titreFocusNode,
                                   onFieldSubmitted: (_) async {
                                     safeSetState(() {
-                                      _model.textController1?.text = '';
+                                      _model.titreTextController?.text = '';
                                     });
                                   },
                                   autofocus: false,
@@ -346,7 +347,7 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
                                             .bodyMedium
                                             .fontStyle,
                                       ),
-                                  validator: _model.textController1Validator
+                                  validator: _model.titreTextControllerValidator
                                       .asValidator(context),
                                   inputFormatters: [
                                     if (!isAndroid && !isiOS)
@@ -423,8 +424,8 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
                                       _model.dropDownValueController1 ??=
                                           FormFieldController<String>(null),
                                   options: [
-                                    '📚 Lecture',
-                                    '📝 Exam / Quiz',
+                                    'Stusy session',
+                                    'hackathon',
                                     '🧪 Lab Session',
                                     '💬 Discussion',
                                     '🎓 Workshop',
@@ -580,11 +581,11 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
                                   ),
                                 ),
                                 TextFormField(
-                                  controller: _model.textController2,
-                                  focusNode: _model.textFieldFocusNode2,
+                                  controller: _model.descTextController,
+                                  focusNode: _model.descFocusNode,
                                   onFieldSubmitted: (_) async {
                                     safeSetState(() {
-                                      _model.textController1?.text = '';
+                                      _model.titreTextController?.text = '';
                                     });
                                   },
                                   textCapitalization:
@@ -677,7 +678,7 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
                                       ),
                                   maxLines: 5,
                                   keyboardType: TextInputType.multiline,
-                                  validator: _model.textController2Validator
+                                  validator: _model.descTextControllerValidator
                                       .asValidator(context),
                                   inputFormatters: [
                                     if (!isAndroid && !isiOS)
@@ -1065,171 +1066,13 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
                                                                             8.0,
                                                                             0.0),
                                                                     child: Text(
-                                                                      'Select date',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            font:
-                                                                                GoogleFonts.inter(
-                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
-                                                                            color:
-                                                                                Color(0xFFBDBDDD),
-                                                                            fontSize:
-                                                                                13.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      12.0,
-                                                                      0.0),
-                                                          child: Container(
-                                                            height: 50.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color:
-                                                                  Colors.white,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          10.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: Color(
-                                                                    0xFFB2DFDB),
-                                                                width: 1.5,
-                                                              ),
-                                                            ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(
-                                                                          12.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      final _datePicked2Date =
-                                                                          await showDatePicker(
-                                                                        context:
-                                                                            context,
-                                                                        initialDate:
-                                                                            getCurrentTimestamp,
-                                                                        firstDate:
-                                                                            getCurrentTimestamp,
-                                                                        lastDate:
-                                                                            DateTime(2050),
-                                                                        builder:
-                                                                            (context,
-                                                                                child) {
-                                                                          return wrapInMaterialDatePickerTheme(
-                                                                            context,
-                                                                            child!,
-                                                                            headerBackgroundColor:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            headerForegroundColor:
-                                                                                FlutterFlowTheme.of(context).info,
-                                                                            headerTextStyle: FlutterFlowTheme.of(context).headlineLarge.override(
-                                                                                  font: GoogleFonts.plusJakartaSans(
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                    fontStyle: FlutterFlowTheme.of(context).headlineLarge.fontStyle,
-                                                                                  ),
-                                                                                  fontSize: 32.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).headlineLarge.fontStyle,
-                                                                                ),
-                                                                            pickerBackgroundColor:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            pickerForegroundColor:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            selectedDateTimeBackgroundColor:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            selectedDateTimeForegroundColor:
-                                                                                FlutterFlowTheme.of(context).info,
-                                                                            actionButtonForegroundColor:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            iconSize:
-                                                                                24.0,
-                                                                          );
-                                                                        },
-                                                                      );
-
-                                                                      if (_datePicked2Date !=
-                                                                          null) {
-                                                                        safeSetState(
-                                                                            () {
-                                                                          _model.datePicked2 =
-                                                                              DateTime(
-                                                                            _datePicked2Date.year,
-                                                                            _datePicked2Date.month,
-                                                                            _datePicked2Date.day,
-                                                                          );
-                                                                        });
-                                                                      } else if (_model
-                                                                              .datePicked2 !=
-                                                                          null) {
-                                                                        safeSetState(
-                                                                            () {
-                                                                          _model.datePicked2 =
-                                                                              getCurrentTimestamp;
-                                                                        });
-                                                                      }
-                                                                    },
-                                                                    child: Icon(
-                                                                      Icons
-                                                                          .access_time_rounded,
-                                                                      color: Colors
-                                                                          .green,
-                                                                      size:
-                                                                          18.0,
-                                                                    ),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      'Select time',
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        dateTimeFormat(
+                                                                            "d/M/y",
+                                                                            _model.datePicked1),
+                                                                        'Select Date',
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
@@ -1417,7 +1260,7 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
-                                                                      final _datePicked3Date =
+                                                                      final _datePicked2Date =
                                                                           await showDatePicker(
                                                                         context:
                                                                             context,
@@ -1463,23 +1306,23 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
                                                                         },
                                                                       );
 
-                                                                      if (_datePicked3Date !=
+                                                                      if (_datePicked2Date !=
                                                                           null) {
                                                                         safeSetState(
                                                                             () {
-                                                                          _model.datePicked3 =
+                                                                          _model.datePicked2 =
                                                                               DateTime(
-                                                                            _datePicked3Date.year,
-                                                                            _datePicked3Date.month,
-                                                                            _datePicked3Date.day,
+                                                                            _datePicked2Date.year,
+                                                                            _datePicked2Date.month,
+                                                                            _datePicked2Date.day,
                                                                           );
                                                                         });
                                                                       } else if (_model
-                                                                              .datePicked3 !=
+                                                                              .datePicked2 !=
                                                                           null) {
                                                                         safeSetState(
                                                                             () {
-                                                                          _model.datePicked3 =
+                                                                          _model.datePicked2 =
                                                                               getCurrentTimestamp;
                                                                         });
                                                                       }
@@ -1501,171 +1344,13 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
                                                                             8.0,
                                                                             0.0),
                                                                     child: Text(
-                                                                      'Select date',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            font:
-                                                                                GoogleFonts.inter(
-                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
-                                                                            color:
-                                                                                Color(0xFFBDBDDD),
-                                                                            fontSize:
-                                                                                13.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      12.0,
-                                                                      0.0),
-                                                          child: Container(
-                                                            height: 50.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color:
-                                                                  Colors.white,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          10.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: Color(
-                                                                    0xFFFFCC80),
-                                                                width: 1.5,
-                                                              ),
-                                                            ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(
-                                                                          12.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      final _datePicked4Date =
-                                                                          await showDatePicker(
-                                                                        context:
-                                                                            context,
-                                                                        initialDate:
-                                                                            getCurrentTimestamp,
-                                                                        firstDate:
-                                                                            getCurrentTimestamp,
-                                                                        lastDate:
-                                                                            DateTime(2050),
-                                                                        builder:
-                                                                            (context,
-                                                                                child) {
-                                                                          return wrapInMaterialDatePickerTheme(
-                                                                            context,
-                                                                            child!,
-                                                                            headerBackgroundColor:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            headerForegroundColor:
-                                                                                FlutterFlowTheme.of(context).info,
-                                                                            headerTextStyle: FlutterFlowTheme.of(context).headlineLarge.override(
-                                                                                  font: GoogleFonts.plusJakartaSans(
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                    fontStyle: FlutterFlowTheme.of(context).headlineLarge.fontStyle,
-                                                                                  ),
-                                                                                  fontSize: 32.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).headlineLarge.fontStyle,
-                                                                                ),
-                                                                            pickerBackgroundColor:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            pickerForegroundColor:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            selectedDateTimeBackgroundColor:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            selectedDateTimeForegroundColor:
-                                                                                FlutterFlowTheme.of(context).info,
-                                                                            actionButtonForegroundColor:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            iconSize:
-                                                                                24.0,
-                                                                          );
-                                                                        },
-                                                                      );
-
-                                                                      if (_datePicked4Date !=
-                                                                          null) {
-                                                                        safeSetState(
-                                                                            () {
-                                                                          _model.datePicked4 =
-                                                                              DateTime(
-                                                                            _datePicked4Date.year,
-                                                                            _datePicked4Date.month,
-                                                                            _datePicked4Date.day,
-                                                                          );
-                                                                        });
-                                                                      } else if (_model
-                                                                              .datePicked4 !=
-                                                                          null) {
-                                                                        safeSetState(
-                                                                            () {
-                                                                          _model.datePicked4 =
-                                                                              getCurrentTimestamp;
-                                                                        });
-                                                                      }
-                                                                    },
-                                                                    child: Icon(
-                                                                      Icons
-                                                                          .access_time_rounded,
-                                                                      color: Color(
-                                                                          0xFFFFA726),
-                                                                      size:
-                                                                          18.0,
-                                                                    ),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      'Select time',
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        dateTimeFormat(
+                                                                            "d/M/y",
+                                                                            _model.datePicked2),
+                                                                        'Select Date',
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
@@ -1853,7 +1538,7 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
-                                                                      final _datePicked5Date =
+                                                                      final _datePicked3Date =
                                                                           await showDatePicker(
                                                                         context:
                                                                             context,
@@ -1899,23 +1584,23 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
                                                                         },
                                                                       );
 
-                                                                      if (_datePicked5Date !=
+                                                                      if (_datePicked3Date !=
                                                                           null) {
                                                                         safeSetState(
                                                                             () {
-                                                                          _model.datePicked5 =
+                                                                          _model.datePicked3 =
                                                                               DateTime(
-                                                                            _datePicked5Date.year,
-                                                                            _datePicked5Date.month,
-                                                                            _datePicked5Date.day,
+                                                                            _datePicked3Date.year,
+                                                                            _datePicked3Date.month,
+                                                                            _datePicked3Date.day,
                                                                           );
                                                                         });
                                                                       } else if (_model
-                                                                              .datePicked5 !=
+                                                                              .datePicked3 !=
                                                                           null) {
                                                                         safeSetState(
                                                                             () {
-                                                                          _model.datePicked5 =
+                                                                          _model.datePicked3 =
                                                                               getCurrentTimestamp;
                                                                         });
                                                                       }
@@ -1937,171 +1622,13 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
                                                                             8.0,
                                                                             0.0),
                                                                     child: Text(
-                                                                      'Select date',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            font:
-                                                                                GoogleFonts.inter(
-                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
-                                                                            color:
-                                                                                Color(0xFFBDBDDD),
-                                                                            fontSize:
-                                                                                13.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      12.0,
-                                                                      0.0),
-                                                          child: Container(
-                                                            height: 50.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color:
-                                                                  Colors.white,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          10.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: Color(
-                                                                    0xFFD1C4FF),
-                                                                width: 1.5,
-                                                              ),
-                                                            ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(
-                                                                          12.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      final _datePicked6Date =
-                                                                          await showDatePicker(
-                                                                        context:
-                                                                            context,
-                                                                        initialDate:
-                                                                            getCurrentTimestamp,
-                                                                        firstDate:
-                                                                            getCurrentTimestamp,
-                                                                        lastDate:
-                                                                            DateTime(2050),
-                                                                        builder:
-                                                                            (context,
-                                                                                child) {
-                                                                          return wrapInMaterialDatePickerTheme(
-                                                                            context,
-                                                                            child!,
-                                                                            headerBackgroundColor:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            headerForegroundColor:
-                                                                                FlutterFlowTheme.of(context).info,
-                                                                            headerTextStyle: FlutterFlowTheme.of(context).headlineLarge.override(
-                                                                                  font: GoogleFonts.plusJakartaSans(
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                    fontStyle: FlutterFlowTheme.of(context).headlineLarge.fontStyle,
-                                                                                  ),
-                                                                                  fontSize: 32.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).headlineLarge.fontStyle,
-                                                                                ),
-                                                                            pickerBackgroundColor:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            pickerForegroundColor:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            selectedDateTimeBackgroundColor:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            selectedDateTimeForegroundColor:
-                                                                                FlutterFlowTheme.of(context).info,
-                                                                            actionButtonForegroundColor:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            iconSize:
-                                                                                24.0,
-                                                                          );
-                                                                        },
-                                                                      );
-
-                                                                      if (_datePicked6Date !=
-                                                                          null) {
-                                                                        safeSetState(
-                                                                            () {
-                                                                          _model.datePicked6 =
-                                                                              DateTime(
-                                                                            _datePicked6Date.year,
-                                                                            _datePicked6Date.month,
-                                                                            _datePicked6Date.day,
-                                                                          );
-                                                                        });
-                                                                      } else if (_model
-                                                                              .datePicked6 !=
-                                                                          null) {
-                                                                        safeSetState(
-                                                                            () {
-                                                                          _model.datePicked6 =
-                                                                              getCurrentTimestamp;
-                                                                        });
-                                                                      }
-                                                                    },
-                                                                    child: Icon(
-                                                                      Icons
-                                                                          .access_time_rounded,
-                                                                      color: Color(
-                                                                          0xFF6B4EFF),
-                                                                      size:
-                                                                          18.0,
-                                                                    ),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      'Select time',
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        dateTimeFormat(
+                                                                            "d/M/y",
+                                                                            _model.datePicked3),
+                                                                        'Select Date',
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
@@ -2178,61 +1705,181 @@ class _CreateEditEventPageWidgetState extends State<CreateEditEventPageWidget> {
                                             ),
                                           ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  120.0, 0.0, 0.0, 0.0),
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              context.pushNamed(
-                                                  AiInsightsWidget.routeName);
-                                            },
-                                            text: 'NEXT',
-                                            options: FFButtonOptions(
-                                              height: 40.0,
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      16.0, 0.0, 16.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    font:
-                                                        GoogleFonts.interTight(
-                                                      fontWeight:
+                                                      120.0, 0.0, 0.0, 0.0),
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  if (_model.formKey
+                                                              .currentState ==
+                                                          null ||
+                                                      !_model
+                                                          .formKey.currentState!
+                                                          .validate()) {
+                                                    return;
+                                                  }
+                                                  if (_model.datePicked1 ==
+                                                      null) {
+                                                    return;
+                                                  }
+                                                  if (_model.datePicked2 ==
+                                                      null) {
+                                                    return;
+                                                  }
+                                                  if (_model.datePicked3 ==
+                                                      null) {
+                                                    return;
+                                                  }
+
+                                                  await TeachersRecord
+                                                      .collection
+                                                      .doc()
+                                                      .set(
+                                                          createTeachersRecordData(
+                                                        titre: _model
+                                                            .titreTextController
+                                                            .text,
+                                                        desc: _model
+                                                            .descTextController
+                                                            .text,
+                                                        startTime:
+                                                            _model.datePicked1,
+                                                        endTime:
+                                                            _model.datePicked2,
+                                                        deadLine:
+                                                            _model.datePicked3,
+                                                        eventType: _model
+                                                            .dropDownValue1,
+                                                      ));
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'data created',
+                                                        style: TextStyle(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                      ),
+                                                      duration: Duration(
+                                                          milliseconds: 4000),
+                                                      backgroundColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .titleSmall
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontStyle,
+                                                              .secondary,
                                                     ),
-                                                    color: Colors.white,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                              elevation: 0.0,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  );
+                                                },
+                                                text: 'save',
+                                                options: FFButtonOptions(
+                                                  height: 40.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          16.0, 0.0, 16.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .interTight(
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontStyle,
+                                                            ),
+                                                            color: Colors.white,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                          ),
+                                                  elevation: 0.0,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                              ),
                                             ),
-                                          ),
+                                            FFButtonWidget(
+                                              onPressed: () async {
+                                                context.pushNamed(
+                                                    AiInsightsWidget.routeName);
+                                              },
+                                              text: 'next',
+                                              options: FFButtonOptions(
+                                                height: 40.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .interTight(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                          ),
+                                                          color: Colors.white,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
+                                                        ),
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
